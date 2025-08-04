@@ -2,24 +2,29 @@
 Library    SeleniumLibrary
 Resource    ../resources/variables.robot
 Resource    ../resources/keywords.robot
+Suite Setup       Open Browser To Homepage
+Suite Teardown    Close Browser
 
 *** Test Cases ***
-singup the newuser 
-    Open Browser    ${URL}    Chrome    
+singup the newuser   
     go to Singup page        
-    input the username
     input the email
+    input the password
     click singup
-    Close All Browsers
+
 
 add blue top in the products
-    Open Browser    ${URL}    Chrome
-    click prodructs
-    search prodructs
+    go to products page
+    search products
+    wait for view product
     view product
     Quantity
     Add to cart
-    Sleep    15s
+    Sleep    5s
 
+detele product
+    Go to cart page
+    Click detele product
+    Sleep    10s
 
 
